@@ -6,6 +6,3 @@ install_all:
 	cp -r cgRNASP/data bin/cgRNASP_data
 	cp -r cgRNASP-C/data bin/cgRNASP-C_data
 	cp -r cgRNASP-PC/data bin/cgRNASP-PC_data
-
-run_example:
-	./bin/cgRNASP_bin tmp/ 1 out.txt
