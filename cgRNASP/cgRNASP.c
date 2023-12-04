@@ -161,10 +161,10 @@ int main(int argc, char *argv[])
 //potential
 /////////////////////////////////////////////////////////
  double ***potential1, ***potential2, ***potential3, ***potential4;
- potential1 = read_potential("lib/cgRNASP/in/cgRNASP_data/0-1_short-ranged.potential", intervals1);
- potential2 = read_potential("lib/cgRNASP/in/cgRNASP_data/1-2_short-ranged.potential", intervals2);
- potential3 = read_potential("lib/cgRNASP/in/cgRNASP_data/2-4_short-ranged.potential", intervals3);
- potential4 = read_potential("lib/cgRNASP/in/cgRNASP_data/long-ranged.potential", intervals4);
+ potential1 = read_potential("lib/cgRNASP/bin/cgRNASP_data/0-1_short-ranged.potential", intervals1);
+ potential2 = read_potential("lib/cgRNASP/bin/cgRNASP_data/1-2_short-ranged.potential", intervals2);
+ potential3 = read_potential("lib/cgRNASP/bin/cgRNASP_data/2-4_short-ranged.potential", intervals3);
+ potential4 = read_potential("lib/cgRNASP/bin/cgRNASP_data/long-ranged.potential", intervals4);
 /////////////////////////////////////////////////////////
 
 //read_pdb
