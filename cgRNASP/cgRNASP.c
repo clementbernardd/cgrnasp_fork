@@ -167,23 +167,23 @@ int main(int argc, char *argv[])
  potential4 = read_potential("lib/cgRNASP/bin/cgRNASP_data/long-ranged.potential", intervals4);
 /////////////////////////////////////////////////////////
 
+
 //read_pdb
 /////////////////////////////////////////////////////////
  FILE *pdb_f, *FP;
  int n1, n2, n3, n4, nnn, NNN, length, Len, number;
- number=atoi(argv[2]);
+// number=atoi(argv[2]);
  char aline[500], file_name[number][300], file_name1[number][300];
  double distance, energy, energy1, energy2, energy3, energy4;
 
- memset(file_name,0,sizeof(file_name));
- memset(file_name1,0,sizeof(file_name1));
- NNN=open_dir(file_name, file_name1, argv[1]);
+// memset(file_name,0,sizeof(file_name));
+// memset(file_name1,0,sizeof(file_name1));
+// NNN=open_dir(file_name, file_name1, argv[1]);
 
- FP = fopen(argv[3],"w+");
-
- for(nnn=0;nnn<NNN;nnn++)
- {
- pdb_f=fopen(file_name1[nnn],"r+");
+ pdb_f=fopen(argv[1],"r+");
+// for(nnn=0;nnn<NNN;nnn++)
+// {
+// pdb_f=fopen(file_name1[nnn],"r+");
  Len=0;
  memset(aline,0,sizeof(aline));
  while(fgets(aline,500,pdb_f)!=NULL)
@@ -201,11 +201,11 @@ int main(int argc, char *argv[])
  memset(num,0,sizeof(num));
  memset(x,0,sizeof(x)); memset(y,0,sizeof(y)); memset(z,0,sizeof(z));
 
- N=read_pdb(file_name1[nnn], type1, type2, type, chain, num, x, y, z, Len);
-/////////////////////////////////////////////////////////
-//obtainig_energy
-/////////////////////////////////////////////////////////
-
+ N=read_pdb(argv[1], type1, type2, type, chain, num, x, y, z, Len);
+///////////////////////////////////////////////////////////
+////obtainig_energy
+///////////////////////////////////////////////////////////
+//
  energy=0.0; energy1=0.0; energy2=0.0; energy3=0.0; energy4=0.0;
  for(n1=0;n1<N;n1++)
   for(n2=n1+1;n2<N;n2++)
@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
             {
              //if(distance>0 && distance<=Rc4)
              if((int)(distance/0.3)<intervals4)
-              energy4+=potential4[n3][n4][(int)(distance/0.3)]; 
+              energy4+=potential4[n3][n4][(int)(distance/0.3)];
             }
 ///
 ///
@@ -267,13 +267,12 @@ int main(int argc, char *argv[])
  for(n1=0;n1<N-1;n1++)
   if(strcmp(type2[n1],type2[n1+1])!=0 || strcmp(num[n1],num[n1+1])!=0 || strcmp(chain[n1],chain[n1+1])!=0)
    length++;
- 
+
  energy = 1.0*energy1 + 1.5*energy2 + 2.4*energy3 + 6.5*energy4/fun(length);
   printf("%lf\n", energy);
- }
- fclose(FP);
-/////////////////////////////////////////////////////////
-
+//// }
+//// fclose(FP);
+///////////////////////////////////////////////////////////
   int i, j;
   for(i=0;i<12;i++)
    for(j=0;j<12;j++)
@@ -306,7 +305,7 @@ int main(int argc, char *argv[])
   end = clock();
   spendtime = (float)(end-start)/(CLOCKS_PER_SEC);
 
-  return 6;
+  return 0;
 }
 
 
