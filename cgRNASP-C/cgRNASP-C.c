@@ -172,7 +172,7 @@ int main(int argc, char *argv[])
  FILE *pdb_f, *FP;
  int n1, n2, n3, n4, nnn, NNN, length, Len, number;
 // number=atoi(argv[2]);
- char aline[500], file_name[number][300], file_name1[number][300];
+ char aline[500];
  double distance, energy, energy1, energy2, energy3, energy4;
 
 // memset(file_name,0,sizeof(file_name));
